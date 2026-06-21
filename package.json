@@ -1,20 +1,20 @@
 {
-  "name": "retrophit",
-  "type": "module",
-  "version": "0.0.1",
-  "engines": {
-    "node": ">=22.12.0"
-  },
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^6.4.7"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.5.0"
-  }
+	"name": "retrophit",
+	"type": "module",
+	"version": "0.0.1",
+	"engines": {
+		"node": ">=22.12.0"
+	},
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"astro": "^6.4.7"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.5.0"
+	}
 }
