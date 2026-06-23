@@ -1,0 +1,79 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "@/components/layout.astro";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("posts");
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={post.data.title}>
+  <article>
+    <header>
+      <h1 class="post-title">
+        {post.data.title}
+      </h1>
+      <h2 class="post-description">
+        {post.data.description}
+      </h2>
+      <span class="post-date">
+        {new Date(post.data.date).toLocaleDateString("en-GB",  {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}
+      </span>
+    </header>
+    <div class="content">
+      <Content />
+    </div>
+  </article>
+</Layout>
+
+<style>
+  article {
+    margin-top: 4rem;
+  }
+  header {
+    max-width: 38rem;
+    margin: 0 auto;
+  }
+  .post-title {
+    font-size: 3rem;
+    line-height: 1;
+    margin: 0;
+  }
+  .post-description {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .post-date {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .content {
+    max-width: 38rem;
+    margin: 2rem auto 8rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  .content :global(p) {
+    color: var(--tandoori-800);
+    line-height: 1.5;
+    margin: 0;
+    text-indent: 2em;
+    text-wrap: pretty;
+    font-size: 1.125rem;
+  }
+  .content :global(p:first-of-type) {
+    text-indent: 0;
+  }
+</style>

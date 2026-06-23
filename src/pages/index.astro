@@ -1,17 +1,67 @@
 ---
+import { getCollection } from "astro:content";
+import Layout from "@/components/layout.astro";
 
+const posts = (await getCollection("posts")).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>retroPHit.haus</title>
-	</head>
-	<body>
-		<h1>retroPHit.haus</h1>
-	</body>
-</html>
+<Layout title="Welcome">
+  <div class="intro">
+  	<p>Documenting our journey rennovating a Victorian house in East London to <a href="https://passipedia.org/certification/enerphit">EnerPHit</a> level.</p>
+  </div>
+
+  <ul class="post-list">
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`/posts/${post.id}/`} class="post-preview">
+            <h3>
+              {post.data.title}
+            </h3>
+            <datetime datetime={new Date(post.data.date).toISOString()}>
+              {new Date(post.data.date).toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </datetime>
+            <p>{post.data.description}</p>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
+
+<style>
+  .intro {
+    font-weight: bold;
+    background-color: var(--hotcaramel-600);
+    padding: 4rem 4rem 6rem;
+  }
+  .intro p {
+    text-wrap: balance;
+    max-width: 32rem;
+    font-size: 2rem;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .post-list {
+    list-style: none;
+    padding: 4rem;
+  }
+  .post-preview {
+    display: block;
+    text-decoration: none;
+    border-bottom: 4px solid var(--hotcaramel-600);
+    max-width: 32rem;
+  }
+  .post-preview h3 {
+    font-size: 3rem;
+    line-height: 1;
+    margin: 0;
+  }
+</style>
