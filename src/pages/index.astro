@@ -40,15 +40,16 @@ const posts = (await getCollection("posts")).sort(
   .intro {
     font-weight: bold;
     background-color: var(--hotcaramel-600);
-    padding: 4rem;
+    padding: 4rem .75rem;
     display: flex;
-    align-items: end;
+    align-items: start;
+    flex-direction: column;
     gap: 2rem;
   }
   .intro p {
     text-wrap: balance;
     max-width: 48rem;
-    font-size: 3rem;
+    font-size: 1.5rem;
     line-height: 1.2;
     margin: 0;
   }
@@ -57,7 +58,7 @@ const posts = (await getCollection("posts")).sort(
   }
   .post-list {
     list-style: none;
-    padding: 4rem;
+    padding: 4rem .75rem;
   }
   .post-preview {
     display: block;
@@ -69,5 +70,19 @@ const posts = (await getCollection("posts")).sort(
     font-size: 3rem;
     line-height: 1;
     margin: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    .intro {
+      padding: 4rem;
+      flex-direction: row;
+      align-items: end;
+    }
+    .intro p {
+      font-size: 3rem;
+    }
+    .post-list {
+      padding: 4rem;
+    }
   }
 </style>
