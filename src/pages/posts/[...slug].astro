@@ -41,10 +41,14 @@ const { Content } = await render(post);
   article {
     margin-top: 4rem;
     padding: 0 .75rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 4rem;
   }
   header {
     max-width: 38rem;
-    margin: 0 auto;
+    margin: 0;
+    grid-column: 2 / span 2;
   }
   .post-title {
     font-size: 3rem;
@@ -62,19 +66,24 @@ const { Content } = await render(post);
     margin: 0;
   }
   .content {
-    max-width: 38rem;
+    grid-column: 2 / span 2;
     margin: 2rem auto 8rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
   .content :global(p) {
     color: var(--tandoori-800);
     line-height: 1.5;
-    margin: 0;
-    text-indent: 2em;
+    margin: 0 0 1.5rem;
     text-wrap: pretty;
     font-size: 1.125rem;
   }
   .content :global(p:first-of-type) {
     text-indent: 0;
+  }
+  .content :global(img) {
+    max-width: 100%;
+    border: .5rem solid white;
+    display: block;
+    margin-left: -.5rem;
   }
 </style>
