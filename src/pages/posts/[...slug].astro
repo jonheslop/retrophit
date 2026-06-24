@@ -23,13 +23,14 @@ const { Content } = await render(post);
       <h2 class="post-description">
         {post.data.description}
       </h2>
-      <span class="post-date">
+      <p class="post-date">
+        by {post.data.author},{' '}
         {new Date(post.data.date).toLocaleDateString("en-GB",  {
           year: "numeric",
           month: "long",
           day: "numeric",
         })}
-      </span>
+      </p>
     </header>
     <div class="content">
       <Content />
@@ -41,7 +42,8 @@ const { Content } = await render(post);
   article {
     margin-top: 4rem;
     padding: 0 .75rem;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 4rem;
   }
@@ -67,7 +69,7 @@ const { Content } = await render(post);
   }
   .content {
     grid-column: 2 / span 2;
-    margin: 2rem auto 8rem;
+    margin: 0 auto 8rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
   .content :global(p) {
@@ -86,4 +88,20 @@ const { Content } = await render(post);
     display: block;
     margin-left: -.5rem;
   }
+  .content :global(.footnotes h2) {
+    margin-top: 4rem;
+  }
+  .content :global(.footnotes ol) {
+    padding-left: .75rem
+  }
+
+  @media screen and (min-width: 1024px) {
+    article {
+      display: grid;
+    }
+    .content :global(.footnotes ol) {
+      padding-left: 0;
+    }
+  }
+
 </style>
