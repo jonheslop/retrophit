@@ -22,6 +22,7 @@ const posts = (await getCollection("posts")).sort(
               {post.data.title}
             </h3>
             <datetime datetime={new Date(post.data.date).toISOString()}>
+              by {post.data.author},{' '}
               {new Date(post.data.date).toLocaleDateString("en-GB", {
                 year: "numeric",
                 month: "long",
@@ -67,6 +68,16 @@ const posts = (await getCollection("posts")).sort(
     border-bottom: 4px solid var(--hotcaramel-600);
     max-width: 32rem;
   }
+  .post-preview:hover,
+  .post-preview:focus {
+    background-color: rgba(255, 255, 255, .2);
+   	box-shadow:
+		5px 5px rgba(255, 255, 255, .1),
+		-5px 5px rgba(255, 255, 255, .1),
+		-5px -5px rgba(255, 255, 255, .1),
+		5px -5px rgba(255, 255, 255, .1);
+  }
+
   .post-preview h3 {
     font-size: 3rem;
     line-height: 1;
