@@ -44,7 +44,7 @@ const posts = (await getCollection("posts")).sort(
     display: flex;
     align-items: start;
     flex-direction: column;
-    gap: 2rem;
+    gap: 4rem;
   }
   .intro p {
     text-wrap: balance;
@@ -55,6 +55,7 @@ const posts = (await getCollection("posts")).sort(
   }
   .house {
     max-width: 16rem;
+
   }
   .post-list {
     list-style: none;
@@ -75,7 +76,8 @@ const posts = (await getCollection("posts")).sort(
   @media screen and (min-width: 768px) {
     .intro {
       padding: 4rem;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       align-items: end;
     }
     .intro p {
@@ -83,6 +85,9 @@ const posts = (await getCollection("posts")).sort(
     }
     .post-list {
       padding: 4rem;
+    }
+    .house {
+      place-self: end;
     }
   }
 </style>
