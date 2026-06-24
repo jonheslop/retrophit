@@ -9,6 +9,7 @@ const posts = (await getCollection("posts")).sort(
 
 <Layout title="Welcome">
   <div class="intro">
+    <img class="house" src="/house.svg" alt="Our new house" />
   	<p>Documenting our journey rennovating a Victorian house in East London to <a href="https://passipedia.org/certification/enerphit">EnerPHit</a> level.</p>
   </div>
 
@@ -39,16 +40,21 @@ const posts = (await getCollection("posts")).sort(
   .intro {
     font-weight: bold;
     background-color: var(--hotcaramel-600);
-    padding: 4rem 4rem 6rem;
+    padding: 4rem;
+    display: flex;
+    align-items: end;
+    gap: 2rem;
   }
   .intro p {
     text-wrap: balance;
-    max-width: 32rem;
-    font-size: 2rem;
+    max-width: 48rem;
+    font-size: 3rem;
     line-height: 1.2;
     margin: 0;
   }
-
+  .house {
+    max-width: 16rem;
+  }
   .post-list {
     list-style: none;
     padding: 4rem;

@@ -31,6 +31,10 @@ const { title } = Astro.props;
   	<main>
    	<slot />
   	</main>
+   <footer>
+     <p>Bec and Jon have been bodging DIY since 2020</p>
+     <p>&copy; {new Date().getFullYear()} retroPHit.haus</p>
+   </footer>
 	</body>
 </html>
 
@@ -66,5 +70,14 @@ nav ul {
   padding: 0;
   display: flex;
   gap: 1rem;
+}
+
+footer {
+  background-color: var(--tandoori-900);
+  color: var(--tandoori-50);
+  padding: 1rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
 }
 </style>
