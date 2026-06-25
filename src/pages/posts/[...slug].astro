@@ -49,25 +49,28 @@ const { Content } = await render(post);
   }
   header {
     max-width: 38rem;
-    margin: 0;
+    width: 100%;
+    margin: 0 auto;
     grid-column: 2 / span 2;
   }
   .post-title {
-    font-size: 3rem;
+    font-size: 1.5rem;
     line-height: 1;
     margin: 0;
   }
   .post-description {
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 1.5;
     margin: 0;
+    font-weight: normal;
   }
   .post-date {
+    opacity: .6;
     font-size: 0.875rem;
-    line-height: 1.5;
     margin: 0;
   }
   .content {
+    max-width: 38rem;
     grid-column: 2 / span 2;
     margin: 0 auto 8rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
