@@ -6,6 +6,14 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+const lastUpdated = new Date().toLocaleDateString("en-GB", {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+	hour: "numeric",
+	minute: "numeric",
+});
 ---
 
 <html lang="en">
@@ -20,7 +28,7 @@ const { title } = Astro.props;
 	<body>
   	<header>
      <h1>
-       <a href="/">retroPHit.haus</a>
+       <a href="/">RetroPHit</a>
      </h1>
      <nav>
        <ul>
@@ -33,7 +41,8 @@ const { title } = Astro.props;
   	</main>
    <footer>
      <p>Bec and Jon have been bodging DIY since 2020</p>
-     <p>&copy; {new Date().getFullYear()} retroPHit.haus</p>
+     <p>Last updated on {lastUpdated}</p>
+     <p>&copy; {new Date().getFullYear()} Jon Heslop</p>
    </footer>
 	</body>
 </html>
@@ -66,6 +75,7 @@ header h1 {
   margin: 0;
 }
 header h1 a {
+  font-size: 1.5rem;
   text-decoration: none;
 }
 main {
