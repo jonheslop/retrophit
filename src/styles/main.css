@@ -1,87 +1,87 @@
 /* If you end up using this, consider donating: https://ko-fi.com/colorparrot — thanks, David Aerne
 
-Cercle chromatique
-1839 Michel Eugène Chevreul
+Interaction of Color
+1942 Josef Albers
 https://rybitten.space/
 */
 
 :root {
-	--hotcaramel-50: #ebe2d8;
-	--hotcaramel-100: #eaded2;
-	--hotcaramel-200: #e5d2bf;
-	--hotcaramel-300: #ddb99a;
-	--hotcaramel-400: #d59669;
-	--hotcaramel-500: #d16f3a;
-	--hotcaramel-600: #d3541e;
-	--hotcaramel-700: #be491b;
-	--hotcaramel-800: #923c1b;
-	--hotcaramel-900: #5d2d1c;
-	--hotcaramel-950: #30211c;
+	--solarflare-50: #e3e1df;
+	--solarflare-100: #e3ded9;
+	--solarflare-200: #e2d2c5;
+	--solarflare-300: #e2baa0;
+	--solarflare-400: #e29a6e;
+	--solarflare-500: #e4793f;
+	--solarflare-600: #e56526;
+	--solarflare-700: #cb5822;
+	--solarflare-800: #95421c;
+	--solarflare-900: #512512;
+	--solarflare-950: #180b07;
 
-	--crisps-50: #ebe3d9;
-	--crisps-100: #eae2d6;
-	--crisps-200: #e8ddca;
-	--crisps-300: #e4d5b3;
-	--crisps-400: #dfc98e;
-	--crisps-500: #ddbb61;
-	--crisps-600: #ddad39;
-	--crisps-700: #c68a29;
-	--crisps-800: #986021;
-	--crisps-900: #5e3b1d;
-	--crisps-950: #30241c;
+	--honeycrisp-50: #e3e3e1;
+	--honeycrisp-100: #e3e2dd;
+	--honeycrisp-200: #e2ddd0;
+	--honeycrisp-300: #e2d5b5;
+	--honeycrisp-400: #e3ca8a;
+	--honeycrisp-500: #e7be53;
+	--honeycrisp-600: #edb323;
+	--honeycrisp-700: #cd971f;
+	--honeycrisp-800: #916a1e;
+	--honeycrisp-900: #4b3713;
+	--honeycrisp-950: #150f06;
 
-	--greenolive-50: #e9e2d8;
-	--greenolive-100: #e6dfd3;
-	--greenolive-200: #dbd4c2;
-	--greenolive-300: #c5c0a2;
-	--greenolive-400: #a7a676;
-	--greenolive-500: #868e4a;
-	--greenolive-600: #697f2c;
-	--greenolive-700: #5b6f24;
-	--greenolive-800: #4a5620;
-	--greenolive-900: #363a1e;
-	--greenolive-950: #25251c;
+	--ferntastic-50: #e1e2e1;
+	--ferntastic-100: #dedfdc;
+	--ferntastic-200: #d5d6cd;
+	--ferntastic-300: #c1c5b2;
+	--ferntastic-400: #a0b38c;
+	--ferntastic-500: #73a667;
+	--ferntastic-600: #43a351;
+	--ferntastic-700: #2f9047;
+	--ferntastic-800: #216a35;
+	--ferntastic-900: #12391f;
+	--ferntastic-950: #06110a;
 
-	--campingtrip-50: #e9e2d9;
-	--campingtrip-100: #e6dfd6;
-	--campingtrip-200: #dbd5cc;
-	--campingtrip-300: #c3c1b8;
-	--campingtrip-400: #9ba198;
-	--campingtrip-500: #667971;
-	--campingtrip-600: #36574d;
-	--campingtrip-700: #334e39;
-	--campingtrip-800: #34432a;
-	--campingtrip-900: #2c3321;
-	--campingtrip-950: #22231d;
+	--heavenlysky-50: #e1e2e2;
+	--heavenlysky-100: #dedfe1;
+	--heavenlysky-200: #d3d7da;
+	--heavenlysky-300: #bdc6ce;
+	--heavenlysky-400: #94acbe;
+	--heavenlysky-500: #5d8dab;
+	--heavenlysky-600: #25759b;
+	--heavenlysky-700: #1b6f81;
+	--heavenlysky-800: #185b5a;
+	--heavenlysky-900: #0e352f;
+	--heavenlysky-950: #04100d;
 
-	--winestain-50: #e9e1d8;
-	--winestain-100: #e5dbd2;
-	--winestain-200: #d8cac0;
-	--winestain-300: #bea89f;
-	--winestain-400: #977773;
-	--winestain-500: #6c454c;
-	--winestain-600: #4d2337;
-	--winestain-700: #441d31;
-	--winestain-800: #3b1d2a;
-	--winestain-900: #2e1d23;
-	--winestain-950: #221d1e;
+	--mutedpurple-50: #e1e0e1;
+	--mutedpurple-100: #dedbdd;
+	--mutedpurple-200: #d4cbcf;
+	--mutedpurple-300: #c0acb8;
+	--mutedpurple-400: #a2829d;
+	--mutedpurple-500: #82588c;
+	--mutedpurple-600: #703d8c;
+	--mutedpurple-700: #63347d;
+	--mutedpurple-800: #49285c;
+	--mutedpurple-900: #281832;
+	--mutedpurple-950: #0c0810;
 
-	--tandoori-50: #ebe2d9;
-	--tandoori-100: #eaded5;
-	--tandoori-200: #e5d3c8;
-	--tandoori-300: #dcbbae;
-	--tandoori-400: #cd9285;
-	--tandoori-500: #ba5e51;
-	--tandoori-600: #a72f26;
-	--tandoori-700: #8d2420;
-	--tandoori-800: #6a2122;
-	--tandoori-900: #441f20;
-	--tandoori-950: #271d1e;
+	--berrylicious-50: #e3e1e1;
+	--berrylicious-100: #e3dede;
+	--berrylicious-200: #e1d3d2;
+	--berrylicious-300: #debbba;
+	--berrylicious-400: #d99396;
+	--berrylicious-500: #d4616a;
+	--berrylicious-600: #cf3348;
+	--berrylicious-700: #b42e4b;
+	--berrylicious-800: #822946;
+	--berrylicious-900: #44192c;
+	--berrylicious-950: #13070e;
 }
 
 a:link,
 a:visited {
-	color: var(--tandoori-900);
+	color: var(--solarflare-950);
 	text-decoration: underline;
 	text-decoration-thickness: 0.125em;
 	text-underline-offset: 0.125em;
@@ -89,11 +89,11 @@ a:visited {
 
 a:focus,
 a:hover {
-	color: var(--tandoori-900);
-	background-color: var(--hotcaramel-50);
+	color: var(--solarflare-950);
+	background-color: var(--ferntastic-50);
 	box-shadow:
-		5px 5px var(--hotcaramel-50),
-		-5px 5px var(--hotcaramel-50),
-		-5px -5px var(--hotcaramel-50),
-		5px -5px var(--hotcaramel-50);
+		5px 5px var(--ferntastic-50),
+		-5px 5px var(--ferntastic-50),
+		-5px -5px var(--ferntastic-50),
+		5px -5px var(--ferntastic-50);
 }
