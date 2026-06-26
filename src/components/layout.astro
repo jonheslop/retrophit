@@ -1,5 +1,6 @@
 ---
 import "@/styles/main.css";
+import { Font } from "astro:assets";
 
 interface Props {
 	title: string;
@@ -24,13 +25,16 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title} | retroPHit.haus</title>
+    <Font cssVariable="--font-plantijn" preload />
   </head>
   <body>
     <section>
       <header>
+        <img class="house" src="/house.svg" alt="Our new house" />
         <h1>
           <a href="/">RetroPHit</a>
         </h1>
+
         <nav>
           <ul>
             <li><a href="/about">About</a></li>
@@ -51,27 +55,38 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
 
 <style>
   body {
-    background-color: var(--tandoori-50);
-    color: var(--tandoori-900);
-    font-family: sans-serif;
+    color: var(--ferntastic-950);
+    font-family: var(--font-plantijn);
     font-size: 1rem;
+    font-weight: 400;
     line-height: 1.25;
     padding: 0;
     margin: 0;
+    background-color: var(--ferntastic-200);
   }
+
   section {
+    background-color: var(--ferntastic-200);
+    background-image: url("/noise.svg");
+    background-repeat: repeat;
+    background-size: 100px;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 1;
     padding: 4rem 8rem;
     display: grid;
     grid-template-columns: 1fr 3fr;
     place-items: start;
     gap: 0 4rem;
     min-height: 100vh;
+    margin-bottom: 5rem;
   }
 
   header {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    text-align: right;
   }
 
   header h1 {
@@ -95,11 +110,17 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     padding: 0;
     display: flex;
     gap: 1rem;
+    justify-content: end;
   }
 
   footer {
-    background-color: var(--tandoori-900);
-    color: var(--tandoori-50);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    background-color: var(--ferntastic-950);
+    color: var(--ferntastic-100);
     padding: 1rem .75rem;
     display: flex;
     flex-direction: column;
@@ -112,5 +133,8 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
       padding: 1rem 4rem;
       flex-direction: row;
     }
+  }
+  .house {
+    width: 12rem;
   }
 </style>
