@@ -1,0 +1,66 @@
+---
+import Layout from "@/components/layout.astro";
+---
+
+<Layout title="About">
+  <article>
+    <header>
+      <h1 class="post-title">
+        About
+      </h1>
+    </header>
+    <div class="content">
+      <p>This is a work in progress... come back soon.</p>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  header {
+    width: 100%;
+    margin: 0 0 4rem;
+    padding-bottom: .75rem;
+    border-bottom: 2px solid var(--ferntastic-600);
+  }
+  .post-title {
+    font-size: 2rem;
+    line-height: 1;
+    margin: 0 0 2rem;
+    font-weight: 900;
+  }
+
+  .content {
+    max-width: 36rem;
+    margin: 0 0 8rem;
+
+  }
+  .content :global(p) {
+    color: var(--tandoori-800);
+    line-height: 1.5;
+    margin: 0 0 1.5rem;
+    text-wrap: pretty;
+    font-size: 1.125rem;
+  }
+  .content :global(p:first-of-type) {
+    text-indent: 0;
+  }
+  .content :global(img) {
+    max-width: 100%;
+    border: .5rem solid white;
+    display: block;
+    margin-left: -.5rem;
+  }
+  .content :global(.footnotes h2) {
+    margin-top: 4rem;
+  }
+  .content :global(.footnotes ol) {
+    padding-left: .75rem
+  }
+
+  @media screen and (min-width: 1024px) {
+    .content :global(.footnotes ol) {
+      padding-left: 0;
+    }
+  }
+
+</style>
