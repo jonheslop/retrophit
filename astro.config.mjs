@@ -20,6 +20,20 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.local(),
+			name: "soehne",
+			cssVariable: "--font-soehne",
+			options: {
+				variants: [
+					{
+						weight: 400,
+						style: "normal",
+						src: ["./src/fonts/test-soehne-buch.woff2"],
+					},
+				],
+			},
+		},
+		{
+			provider: fontProviders.local(),
 			name: "plantijn",
 			cssVariable: "--font-plantijn",
 			options: {
