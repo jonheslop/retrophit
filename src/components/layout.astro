@@ -81,7 +81,7 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     display: grid;
     grid-template-columns: 1fr 3fr;
     place-items: start;
-    gap: 0 4rem;
+    gap: 0 8rem;
     min-height: 100vh;
     margin-bottom: 10rem;
   }
@@ -91,6 +91,7 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     flex-direction: column;
     gap: 2rem;
     text-align: right;
+    margin-left: auto;
   }
 
   header h1 {
@@ -103,11 +104,13 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
   header h1 a {
     text-decoration: none;
   }
+
   main {
     margin-bottom: 4rem;
     width: 100%;
-    max-width: 38rem;
+    max-width: 60rem;
   }
+
   nav ul {
     list-style: none;
     margin: 0;
