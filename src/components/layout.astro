@@ -26,6 +26,7 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     <meta name="generator" content={Astro.generator} />
     <title>{title} | retroPHit.haus</title>
     <Font cssVariable="--font-plantijn" preload />
+    <Font cssVariable="--font-soehne" preload />
   </head>
   <body>
     <section>
@@ -46,9 +47,11 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
       </main>
     </section>
    <footer>
-     <p>Bec and Jon have been bodging DIY since 2020</p>
-     <p>Last updated on {lastUpdated}</p>
-     <p>&copy; {new Date().getFullYear()} Jon Heslop</p>
+     <div>
+      <p>Bec and Jon have been bodging DIY projects since 2020</p>
+      <p>Last updated on {lastUpdated} GMT</p>
+      <p>&copy; {new Date().getFullYear()} Jon Heslop</p>
+     </div>
    </footer>
   </body>
 </html>
@@ -63,6 +66,7 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     padding: 0;
     margin: 0;
     background-color: var(--ferntastic-200);
+    font-feature-settings: "ss02" 1, "calt";
   }
 
   section {
@@ -79,7 +83,7 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     place-items: start;
     gap: 0 4rem;
     min-height: 100vh;
-    margin-bottom: 5rem;
+    margin-bottom: 10rem;
   }
 
   header {
@@ -93,6 +97,7 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     font-size: 1.5rem;
     line-height: 1;
     margin: 0;
+    font-weight: 900;
   }
 
   header h1 a {
@@ -102,7 +107,6 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     margin-bottom: 4rem;
     width: 100%;
     max-width: 38rem;
-
   }
   nav ul {
     list-style: none;
@@ -111,6 +115,8 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     display: flex;
     gap: 1rem;
     justify-content: end;
+    font-family: var(--font-soehne);
+    font-size: 0.875rem;
   }
 
   footer {
@@ -122,15 +128,26 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     background-color: var(--ferntastic-950);
     color: var(--ferntastic-100);
     padding: 1rem .75rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 0 4rem;
+  }
+
+  footer div {
+    grid-column: 2;
+  }
+
+  footer p {
+    font-family: var(--font-soehne);
     font-size: 0.875rem;
+    line-height: 1.5;
+    margin: 0;
+    opacity: .6;
   }
 
   @media screen and (min-width: 768px) {
     footer {
-      padding: 1rem 4rem;
+      padding: 1rem 8rem;
       flex-direction: row;
     }
   }
