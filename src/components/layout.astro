@@ -31,7 +31,9 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
   <body>
     <section>
       <header>
-        <img class="house" src="/house.svg" alt="Our new house" />
+        <a class="house-link" href="/">
+          <img class="house" src="/house.svg" alt="Our new house" />
+        </a>
         <h1>
           <a href="/">RetroPHit</a>
         </h1>
@@ -105,6 +107,10 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
   .house {
     width: 4rem;
     max-width: 100%;
+  }
+  .house-link {
+    background-color: transparent;
+    box-shadow: none;
   }
 
   main {
