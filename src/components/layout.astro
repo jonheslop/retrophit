@@ -77,21 +77,18 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     background-attachment: fixed;
     position: relative;
     z-index: 1;
-    padding: 4rem 8rem;
+    padding: 2rem .75rem;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    gap: 4rem;
     place-items: start;
-    gap: 0 8rem;
-    min-height: 100vh;
-    margin-bottom: 10rem;
+    margin-bottom: 6rem;
   }
 
   header {
     display: flex;
-    flex-direction: column;
     gap: 2rem;
     text-align: right;
-    margin-left: auto;
+    align-items: end;
   }
 
   header h1 {
@@ -103,6 +100,11 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
 
   header h1 a {
     text-decoration: none;
+  }
+
+  .house {
+    width: 4rem;
+    max-width: 100%;
   }
 
   main {
@@ -132,12 +134,7 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     color: var(--ferntastic-100);
     padding: 1rem .75rem;
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 0 4rem;
-  }
-
-  footer div {
-    grid-column: 2;
+    gap: 4rem;
   }
 
   footer p {
@@ -149,12 +146,40 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
   }
 
   @media screen and (min-width: 768px) {
+    section {
+      grid-template-columns: 1fr 3fr;
+      padding: 4rem 2rem;
+      min-height: 100vh;
+    }
+
     footer {
-      padding: 1rem 8rem;
-      flex-direction: row;
+      grid-template-columns: 1fr 3fr;
+      padding: 1rem 2rem;
+    }
+
+    footer div {
+      grid-column: 2;
+    }
+
+    header {
+      margin-left: auto;
+      flex-direction: column;
+      align-items: start;
+      align-items: end;
+    }
+
+    .house {
+      width: 12rem;
     }
   }
-  .house {
-    width: 12rem;
-  }
+  @media screen and (min-width: 1024px) {
+    section {
+      gap: 0 8rem;
+      padding: 4rem 8rem;
+    }
+    footer {
+      gap: 8rem;
+      padding: 1rem 8rem;
+    }
+}
 </style>
