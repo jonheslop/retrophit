@@ -41,32 +41,17 @@ export default defineConfig({
 					{
 						weight: 400,
 						style: "normal",
-						src: ["./src/fonts/test-martina-plantijn-regular.woff2"],
+						src: ["./src/fonts/martina-plantijn-regular.woff2"],
 					},
 					{
 						weight: 400,
 						style: "italic",
-						src: ["./src/fonts/test-martina-plantijn-italic.woff2"],
-					},
-					{
-						weight: 500,
-						style: "normal",
-						src: ["./src/fonts/test-martina-plantijn-medium.woff2"],
-					},
-					{
-						weight: 500,
-						style: "italic",
-						src: ["./src/fonts/test-martina-plantijn-medium-italic.woff2"],
+						src: ["./src/fonts/martina-plantijn-italic.woff2"],
 					},
 					{
 						weight: 700,
 						style: "normal",
-						src: ["./src/fonts/test-martina-plantijn-bold.woff2"],
-					},
-					{
-						weight: 900,
-						style: "normal",
-						src: ["./src/fonts/test-martina-plantijn-black.woff2"],
+						src: ["./src/fonts/martina-plantijn-bold.woff2"],
 					},
 				],
 			},
