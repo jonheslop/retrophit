@@ -52,7 +52,7 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
      <div>
       <p>Bec and Jon have been bodging DIY projects since 2020</p>
       <p>Last updated on {lastUpdated} GMT</p>
-      <p>&copy; {new Date().getFullYear()} Jon Heslop</p>
+      <p>&copy; {new Date().getFullYear()} <a href="https://jonheslop.com">Jon Heslop</a> &amp; Rebecca Goss</p>
      </div>
    </footer>
   </body>
@@ -149,6 +149,15 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     line-height: 1.5;
     margin: 0;
     opacity: .6;
+  }
+
+  footer a {
+    color: var(--ferntastic-100);
+    text-decoration: underline;
+  }
+  footer a:hover {
+    color: var(--ferntastic-900);
+
   }
 
   @media screen and (min-width: 768px) {

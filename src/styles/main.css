@@ -83,6 +83,7 @@ a:link,
 a:visited {
 	color: var(--solarflare-950);
 	text-decoration: underline;
+	text-decoration-color: var(--ferntastic-700);
 	text-decoration-thickness: 0.125em;
 	text-underline-offset: 0.125em;
 }
@@ -90,10 +91,11 @@ a:visited {
 a:focus,
 a:hover {
 	color: var(--solarflare-950);
-	background-color: var(--ferntastic-50);
+	background-color: var(--ferntastic-400);
+	border-radius: .25em;
 	box-shadow:
-		5px 5px var(--ferntastic-50),
-		-5px 5px var(--ferntastic-50),
-		-5px -5px var(--ferntastic-50),
-		5px -5px var(--ferntastic-50);
+		5px 5px var(--ferntastic-400),
+		-5px 5px var(--ferntastic-400),
+		-5px -5px var(--ferntastic-400),
+		5px -5px var(--ferntastic-400);
 }
