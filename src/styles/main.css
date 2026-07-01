@@ -82,6 +82,7 @@ https://rybitten.space/
 
 	--color-foreground: light-dark(var(--ferntastic-950), var(--ferntastic-200));
 	--color-background: light-dark(var(--ferntastic-200), var(--ferntastic-950));
+	--footer-height: 6rem;
 }
 
 a:link,
