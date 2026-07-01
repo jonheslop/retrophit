@@ -6,6 +6,8 @@ https://rybitten.space/
 */
 
 :root {
+	color-scheme: light dark;
+
 	--solarflare-50: #e3e1df;
 	--solarflare-100: #e3ded9;
 	--solarflare-200: #e2d2c5;
@@ -77,11 +79,14 @@ https://rybitten.space/
 	--berrylicious-800: #822946;
 	--berrylicious-900: #44192c;
 	--berrylicious-950: #13070e;
+
+	--color-foreground: light-dark(var(--ferntastic-950), var(--ferntastic-200));
+	--color-background: light-dark(var(--ferntastic-200), var(--ferntastic-950));
 }
 
 a:link,
 a:visited {
-	color: var(--solarflare-950);
+	color: var(--color-foreground);
 	text-decoration: underline;
 	text-decoration-color: var(--ferntastic-700);
 	text-decoration-thickness: 0.125em;
@@ -92,7 +97,7 @@ a:focus,
 a:hover {
 	color: var(--solarflare-950);
 	background-color: var(--ferntastic-400);
-	border-radius: .25em;
+	border-radius: 0.25em;
 	box-shadow:
 		5px 5px var(--ferntastic-400),
 		-5px 5px var(--ferntastic-400),
