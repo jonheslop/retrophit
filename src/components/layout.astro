@@ -28,6 +28,12 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     <meta name="description" content="Documenting our journey rennovating a Victorian house in East London to the EnerPHit standard." />
     <Font cssVariable="--font-plantijn" preload />
     <Font cssVariable="--font-soehne" preload />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="retroPHit.haus"
+      href={new URL("feed.xml", Astro.site)}
+    />
   </head>
   <body>
     <section>
