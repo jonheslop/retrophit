@@ -48,6 +48,7 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
         <nav>
           <ul>
             <li><a href="/about">About</a></li>
+            <li><a href="/colophon">Colophon</a></li>
           </ul>
         </nav>
       </header>
@@ -218,7 +219,12 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     .house {
       width: 12rem;
     }
+
+    nav ul {
+      flex-direction: column;
+    }
   }
+
   @media screen and (min-width: 1024px) {
     section {
       gap: 0 8rem;
