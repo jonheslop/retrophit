@@ -28,7 +28,6 @@ const posts = (await getCollection("posts")).sort(
               <time datetime={new Date(post.data.date).toISOString()}>{new Date(post.data.date).toLocaleDateString("en-GB", {
                 year: "numeric",
                 month: "long",
-                day: "numeric",
               })}</time>
               </p>
           </a>
