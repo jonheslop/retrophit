@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import Article from "@/components/article.astro";
 import Layout from "@/components/layout.astro";
+import PostImage from "@/components/PostImage.astro";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("posts");
@@ -22,6 +23,6 @@ const { Content } = await render(post);
     author={post.data.author}
     date={post.data.date}
   >
-    <Content />
+    <Content components={{ img: PostImage }} />
   </Article>
 </Layout>
