@@ -4,9 +4,28 @@ import { Font } from "astro:assets";
 
 interface Props {
 	title: string;
+	description?: string;
+	image?: string;
+	type?: "website" | "article";
 }
 
-const { title } = Astro.props;
+const SITE_NAME = "RetroPHit";
+const DEFAULT_DESCRIPTION =
+	"Documenting our journey renovating a Victorian house in East London to the EnerPHit standard.";
+const DEFAULT_IMAGE = "/og-image.jpg";
+
+const {
+	title,
+	description = DEFAULT_DESCRIPTION,
+	image = DEFAULT_IMAGE,
+	type = "website",
+} = Astro.props;
+
+const isHome = Astro.url.pathname === "/";
+const pageTitle = isHome ? title : `${title} | ${SITE_NAME}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const imageUrl = new URL(image, Astro.site);
+const SiteTitle = isHome ? "h1" : "p";
 
 const lastUpdated = new Date().toLocaleDateString("en-GB", {
 	year: "numeric",
@@ -24,16 +43,28 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | retroPHit.haus</title>
-    <meta name="description" content="Documenting our journey rennovating a Victorian house in East London to the EnerPHit standard." />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content={type} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <Font cssVariable="--font-plantijn" preload />
     <Font cssVariable="--font-soehne" preload />
     <link
       rel="alternate"
       type="application/rss+xml"
-      title="retroPHit.haus"
+      title={SITE_NAME}
       href={new URL("feed.xml", Astro.site)}
     />
+    <slot name="head" />
   </head>
   <body>
     <section>
@@ -41,9 +72,9 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
         <a class="house-link" href="/">
           <img class="house" src="/house.svg" alt="Our new house" />
         </a>
-        <h1>
-          <a href="/">RetroPHit</a>
-        </h1>
+        <SiteTitle class="site-title">
+          <a href="/">{SITE_NAME}</a>
+        </SiteTitle>
 
         <nav>
           <ul>
@@ -102,7 +133,7 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     align-items: end;
   }
 
-  header h1 {
+  .site-title {
     font-size: 1.5rem;
     line-height: 1;
     margin: 0;
@@ -110,7 +141,7 @@ const lastUpdated = new Date().toLocaleDateString("en-GB", {
     letter-spacing: -.0125em;
   }
 
-  header h1 a {
+  .site-title a {
     text-decoration: none;
   }
 
