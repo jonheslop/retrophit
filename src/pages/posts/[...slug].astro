@@ -5,14 +5,16 @@ import Layout from "@/components/layout.astro";
 import PostImage from "@/components/PostImage.astro";
 
 export async function getStaticPaths() {
-	const posts = await getCollection("posts");
-	return posts.map((post) => ({
+	const posts = (await getCollection("posts")).sort(
+		(a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
+	);
+	return posts.map((post, i) => ({
 		params: { slug: post.id },
-		props: { post },
+		props: { post, prev: posts[i - 1], next: posts[i + 1] },
 	}));
 }
 
-const { post } = Astro.props;
+const { post, prev, next } = Astro.props;
 const { Content } = await render(post);
 ---
 
@@ -25,4 +27,42 @@ const { Content } = await render(post);
   >
     <Content components={{ img: PostImage }} />
   </Article>
+
+  {(prev || next) && (
+    <nav class="post-nav" aria-label="More posts">
+      {prev && (
+        <a href={`/posts/${prev.id}/`} rel="prev" class="prev">
+          &larr; {prev.data.title}
+        </a>
+      )}
+      {next && (
+        <a href={`/posts/${next.id}/`} rel="next" class="next">
+          {next.data.title} &rarr;
+        </a>
+      )}
+    </nav>
+  )}
 </Layout>
+
+<style>
+  .post-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 36rem;
+    padding-top: .75rem;
+    border-top: 2px solid var(--ferntastic-700);
+  }
+
+  .post-nav a {
+    justify-self: start;
+    font-size: 1.125rem;
+    text-decoration: none;
+  }
+
+  .post-nav .next {
+    grid-column: 2;
+    justify-self: end;
+    text-align: right;
+  }
+</style>
