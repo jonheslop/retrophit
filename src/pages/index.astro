@@ -7,22 +7,25 @@ const posts = (await getCollection("posts")).sort(
 );
 ---
 
-<Layout title="Welcome">
+<Layout
+  title="RetroPHit – retrofitting a Victorian house to make it beautiful and energy efficient"
+  description="Bec and Jon document their journey renovating a Victorian house in East London to the EnerPHit standard"
+>
   <div class="intro">
-     	<p>Documenting our journey rennovating a Victorian house in East London to the <a href="https://passipedia.org/certification/enerphit">EnerPHit</a> standard</p>
+     	<p>Documenting our journey renovating a Victorian house in East London to the <a href="https://passipedia.org/certification/enerphit">EnerPHit</a> standard</p>
   </div>
 
-  <h4>Recent posts</h4>
+  <h2 class="section-heading">Recent posts</h2>
 
   <ul class="post-list">
     {
       posts.map((post) => (
         <li>
           <a href={`/posts/${post.id}/`} class="post-preview">
-            <h2 class="post-title">
+            <h3 class="post-title">
               {post.data.title}
-            </h2>
-            <h3 class="post-description">{post.data.description}</h3>
+            </h3>
+            <p class="post-description">{post.data.description}</p>
             <p class="post-date">
               by {post.data.author},{' '}
               <time datetime={new Date(post.data.date).toISOString()}>{new Date(post.data.date).toLocaleDateString("en-GB", {
@@ -50,7 +53,8 @@ const posts = (await getCollection("posts")).sort(
     letter-spacing: -.0125em;
   }
 
-  h4 {
+  .section-heading {
+    margin: 1.33em 0;
     font-size: .75rem;
     font-family: var(--font-soehne);
     font-weight: normal;
