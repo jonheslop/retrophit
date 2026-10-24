@@ -15,9 +15,9 @@ const { title, description, author, date } = Astro.props;
       {title}
     </h1>
     {description && (
-      <h2 class="post-description">
+      <p class="post-description">
         {description}
-      </h2>
+      </p>
     )}
     {author && date && (
       <p class="post-date">
