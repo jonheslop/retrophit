@@ -45,12 +45,25 @@ const { title, description, author, date } = Astro.props;
     max-width: 36rem;
     margin: 0 0 8rem;
   }
-  .content :global(p) {
+  .content :global(p),
+  .content :global(ul) {
     line-height: 1.5;
     margin: 0 0 1.5rem;
     text-wrap: pretty;
     font-size: 1.125rem;
   }
+
+  .content :global(li) {
+     margin-bottom: .25rem;
+     max-width: 44ch;
+     text-wrap: pretty;
+     list-style: square;
+  }
+
+  .content :global(li::marker) {
+    color: var(--ferntastic-700);
+  }
+
   .content :global(p:first-of-type) {
     text-indent: 0;
   }
