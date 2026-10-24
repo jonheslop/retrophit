@@ -16,9 +16,45 @@ export async function getStaticPaths() {
 
 const { post, prev, next } = Astro.props;
 const { Content } = await render(post);
+
+const description = post.data.seoDescription ?? post.data.description;
+
+// Use the frontmatter image, or fall back to the first Cloudflare Images URL in the post
+const firstImage = post.body?.match(
+	/https:\/\/imagedelivery\.net\/[^\s)"]+\/(?:medium|large)/,
+)?.[0];
+const image =
+	post.data.image ?? firstImage?.replace(/\/medium$/, "/large") ?? undefined;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	headline: post.data.title,
+	description,
+	datePublished: post.data.date.toISOString(),
+	author: { "@type": "Person", name: post.data.author },
+	image,
+	url: canonical,
+	mainEntityOfPage: canonical,
+	publisher: { "@type": "Organization", name: "RetroPHit", url: Astro.site },
+};
 ---
 
-<Layout title={post.data.title}>
+<Layout
+  title={post.data.title}
+  description={description}
+  image={image}
+  type="article"
+>
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(jsonLd)}
+  />
+  <meta slot="head" property="article:published_time" content={post.data.date.toISOString()} />
+  <meta slot="head" property="article:author" content={post.data.author} />
+
   <Article
     title={post.data.title}
     description={post.data.description}
