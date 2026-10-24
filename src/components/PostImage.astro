@@ -1,4 +1,6 @@
 ---
+import { inferRemoteSize } from "astro:assets";
+
 interface Props {
 	src: string;
 	alt?: string;
@@ -6,20 +8,41 @@ interface Props {
 }
 
 const { src, alt, title } = Astro.props;
+
+// Read dimensions at build time so the browser can reserve space (avoids layout shift)
+let width: number | undefined;
+let height: number | undefined;
+try {
+	({ width, height } = await inferRemoteSize(src));
+} catch {
+	// Fall back to no dimensions rather than failing the build
+}
+
+const imgProps = {
+	src,
+	alt,
+	width,
+	height,
+	loading: "lazy",
+	decoding: "async",
+} as const;
 ---
 
 {
   title ? (
     <figure>
-      <img src={src} alt={alt} />
+      <img {...imgProps} />
       <figcaption>{alt}</figcaption>
     </figure>
   ) : (
-    <img src={src} alt={alt} />
+    <img {...imgProps} />
   )
 }
 
 <style>
+  img {
+    height: auto;
+  }
   figure {
     margin: 2rem 0;
     border: 4px solid rgb(255 255 255 / .9);;

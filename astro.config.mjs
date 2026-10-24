@@ -10,6 +10,9 @@ import { defineConfig, fontProviders } from "astro/config";
 export default defineConfig({
 	site: "https://retrophit.haus",
 	trailingSlash: "always",
+	image: {
+		domains: ["imagedelivery.net"],
+	},
 	adapter: cloudflare({
 		imageService: "compile",
 	}),
