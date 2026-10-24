@@ -3,6 +3,7 @@
 import cloudflare from "@astrojs/cloudflare";
 import { satteri } from "@astrojs/markdown-satteri";
 import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 import { defineConfig, fontProviders } from "astro/config";
 
 // https://astro.build/config
@@ -16,7 +17,7 @@ export default defineConfig({
 			features: { directive: true },
 		}),
 	},
-	integrations: [mdx()],
+	integrations: [mdx(), sitemap()],
 	fonts: [
 		{
 			provider: fontProviders.local(),
